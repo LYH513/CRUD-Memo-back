@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crudmemoback.mapper.BoardMapper">
+
+    <select id="getBoard" parameterType="java.lang.Long" resultType="com.example.crudmemoback.dto.BoardDto$DetailResBoard">
+        select CAST(board.boardid AS CHAR) AS boardID,
+               board.user_name AS userName,
+               board.title,
+               board.contents,
+               DATE_FORMAT(board.created_at, '%Y-%m-%d %H:%i:%s') AS createdAt
+        from board
+        where board.boardid = #{boardID}
+    </select>
+
+    <select id="getBoardList" resultType="com.example.crudmemoback.dto.BoardDto$DetailResBoard">
+        select CAST(board.boardid AS CHAR) AS boardID
+        from board
+        where board.boardid is not null
+    </select>
+
+</mapper>
