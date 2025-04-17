@@ -8,9 +8,11 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 spring:
-  config:
-    import:
-      - classpath:/yaml/application-keys.yaml
+  datasource:
+    url: jdbc:mysql://localhost:3306/testcrud_db?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: 111
+    password: 111!
+    driver-class-name: com.mysql.cj.jdbc.Driver
   #
   jpa:
     defer-datasource-initialization: true
