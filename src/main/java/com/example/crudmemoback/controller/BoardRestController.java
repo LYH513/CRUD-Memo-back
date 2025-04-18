@@ -34,7 +34,7 @@ public class BoardRestController {
     }
 
     // Update
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public void updateBoard(@RequestBody BoardDto.UpdateReqBoard board,
                             @PathVariable("id") Long boardID) {
         boardService.updateBoard(board,boardID); // string -> Long
